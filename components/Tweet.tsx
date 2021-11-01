@@ -9,7 +9,6 @@ export function Tweet({fakeText} : {fakeText: string}) {
         var cleaninterval = setInterval(() => clearInterval(interval),1500);
         function waitIframeDisplay() {
           if(document.querySelector('iframe').style.display !== 'none') {
-              console.log(document.querySelector('iframe').style.display)
               setLoading(false);
               clearInterval(interval);
           }
