@@ -17,7 +17,7 @@ export function Tweet({fakeText} : {fakeText: string}) {
     return(
         <div className="relative">
         {!loading && 
-            <div className="mobileFakeText text-sm md:text-xl h-14 md:leading-6 absolute text-black bg-white" style={{top:'83.333px', left: '18px', width: '512px'}}>
+            <div className="mobileFakeText text-center text-sm md:text-xl h-14 md:leading-6 absolute text-black bg-white" style={{top:'83.333px', left: '18px', width: '512px'}}>
                 {fakeText}
             </div>
         }
