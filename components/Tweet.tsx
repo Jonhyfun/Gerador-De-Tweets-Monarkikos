@@ -29,7 +29,7 @@ export function Tweet({fakeText} : {fakeText: string}) {
             <a href="https://twitter.com/monark/status/1454912673083232263?ref_src=twsrc%5Etfw">October 31, 2021</a>
         </blockquote> 
         <Script async src="https://platform.twitter.com/widgets.js"></Script>
-        <p onClick={()=>setLoading(false)} className="cursor-pointer underline text-white">firefox?</p>
+        <p onClick={()=>{setLoading(false); alert('tente desativar o mixed-content blocking')}} className="cursor-pointer underline text-white">firefox?</p>
         </div>
     )
 }
