@@ -2,7 +2,6 @@ import Markov from 'markov-strings';
  
 export function GenerateText(monarkisses: string) {
     const data = monarkisses.split('\n').map((word) => word.replace('\r', '')).filter((word) => {return word.replace(/([\r\n]){1,}/g, '\n\n')});
-    console.log(data)
 
     const markov = new Markov({ stateSize: 2 })
     
