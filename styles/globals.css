@@ -1,3 +1,11 @@
 .hover:hover{
     background-color:blue !important;
 }
+
+@media only screen and (max-width: 600px) {
+    .mobileFakeText {
+        width: 270px !important;
+        left: 16px !important;
+        top: 80px !important;
+    }
+}
