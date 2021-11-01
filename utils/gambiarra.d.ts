@@ -1,1 +1,0 @@
-declare module 'raw-loader!./monark.txt'
