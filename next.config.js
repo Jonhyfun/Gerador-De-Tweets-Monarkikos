@@ -7,7 +7,7 @@ module.exports = {
         module: Object.assign({}, config.module, {
             rules: [
                 {
-                  test: /\.txt/,
+                  test: /\.txt$/,
                   use: 'raw-loader',
                 },
               ],
