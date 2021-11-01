@@ -6,7 +6,7 @@ export function Tweet({fakeText} : {fakeText: string}) {
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
         var interval = setInterval(waitIframeDisplay, 300);
-        var cleaninterval = setInterval(() => clearInterval(interval),1500);
+        setInterval(() => clearInterval(interval),1500);
         function waitIframeDisplay() {
           if(document.querySelector('iframe').style.display !== 'none') {
               setLoading(false);
