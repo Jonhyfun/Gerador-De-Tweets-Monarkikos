@@ -20,7 +20,7 @@ export default function Index({monarkisses}) {
       <button onClick={() => setText(GenerateText(monarkisses))} className="hover text-white font-bold py-2 px-4 rounded-full" style={{boxShadow: '2px 4px 10px #00000050', backgroundColor: 'rgb(29, 155, 240)'}}>
         Gerar mais um Tweet!
       </button>
-      <p style={{width:'85vw'}} className="text-white">Esta é apenas a primeira versão dessa aplicação. Os resultados podem variar por ser uma geração aleatória com poucos dados de base ainda. Você pode contribuir com tweets <a className="text-blue-700 underline" href="https://github.com/Jonhyfun/Gerador-De-Tweets-Monarkikos">aqui</a></p>
+      <p style={{width:'85vw'}} className="text-white text-center">Esta é apenas a primeira versão dessa aplicação. Os resultados podem variar por ser uma geração aleatória com poucos dados de base ainda. Você pode contribuir com tweets <a className="text-blue-700 underline" href="https://github.com/Jonhyfun/Gerador-De-Tweets-Monarkikos">aqui</a></p>
     </div>
   )
 }
