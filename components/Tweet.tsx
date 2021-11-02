@@ -33,11 +33,11 @@ export function Tweet({fakeText, monarkisses, setChaos} : {fakeText: string, mon
         <Script async src="https://platform.twitter.com/widgets.js"></Script>
         <div className="w-full flex justify-between">
             <p onClick={()=>{setLoading(false); alert('tente desativar o mixed-content blocking')}} className="cursor-pointer underline text-white">firefox?</p>
-            <p className="text-white">{tweets.current} tweets usados</p>
             <label className="inline-flex items-center">
                 <input onChange={(e)=>setChaos(e.target.checked)} type="checkbox" className="form-checkbox" />
                 <span className="ml-2 text-white">tweets caóticos?</span>
             </label>
+            <p className="text-white">{tweets.current} tweets usados</p>
         </div>
         </div>
     )
