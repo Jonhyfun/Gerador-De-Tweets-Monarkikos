@@ -5,10 +5,10 @@ export function tweetBase(monarkisses: string) {
   return {data, length: data.length}
 }
 
-export function GenerateText(monarkisses: string) {
+export function GenerateText(monarkisses: string, chaos: boolean) {
     const data = tweetBase(monarkisses).data
 
-    const markov = new Markov({ stateSize: 2 })
+    const markov = new Markov({ stateSize: chaos ? 1 : 2 })
     
     markov.addData(data)
     
@@ -18,7 +18,7 @@ export function GenerateText(monarkisses: string) {
       prng: Math.random,
     
       filter: (result) => {
-        return result.refs.length !== 1 && data.includes(result.string) === false && result.string.length < 113
+        return result.refs.length !== 1 && data.includes(result.string) === false && result.string.length < 101
       }
     }
     

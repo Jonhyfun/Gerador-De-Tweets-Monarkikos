@@ -1,9 +1,9 @@
 import Script from "next/script";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { isMobile, isTablet } from 'react-device-detect';
 import { tweetBase } from "../utils/generate-text";
 
-export function Tweet({fakeText, monarkisses} : {fakeText: string, monarkisses: any}) {
+export function Tweet({fakeText, monarkisses, setChaos} : {fakeText: string, monarkisses: any, setChaos: Dispatch<SetStateAction<boolean>>}) {
     const [loading, setLoading] = useState(true);
     const tweets = useRef(tweetBase(monarkisses).length);
     useEffect(()=>{
@@ -31,7 +31,14 @@ export function Tweet({fakeText, monarkisses} : {fakeText: string, monarkisses: 
             <a href="https://twitter.com/monark/status/1454912673083232263?ref_src=twsrc%5Etfw">October 31, 2021</a>
         </blockquote> 
         <Script async src="https://platform.twitter.com/widgets.js"></Script>
-        <div className="w-full flex justify-between"><p onClick={()=>{setLoading(false); alert('tente desativar o mixed-content blocking')}} className="cursor-pointer underline text-white">firefox?</p><p className="text-white">{tweets.current} tweets usados</p></div>
+        <div className="w-full flex justify-between">
+            <p onClick={()=>{setLoading(false); alert('tente desativar o mixed-content blocking')}} className="cursor-pointer underline text-white">firefox?</p>
+            <p className="text-white">{tweets.current} tweets usados</p>
+            <label className="inline-flex items-center">
+                <input onChange={(e)=>setChaos(e.target.checked)} type="checkbox" className="form-checkbox" />
+                <span className="ml-2 text-white">tweets caóticos?</span>
+            </label>
+        </div>
         </div>
     )
 }

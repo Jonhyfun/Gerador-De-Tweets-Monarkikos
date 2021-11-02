@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css" rel="stylesheet"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
       <link rel="preconnect" href="https://fonts.googleapis.com"/>

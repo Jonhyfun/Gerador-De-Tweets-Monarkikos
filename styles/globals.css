@@ -9,3 +9,11 @@
         top: 80px !important;
     }
 }
+
+.form-checkbox {
+    @apply text-blue-600 !important ;
+}
+.form-checkbox:focus {
+    border-color: #00000000 !important;
+    box-shadow: none !important;
+}
