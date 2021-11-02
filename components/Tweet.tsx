@@ -1,9 +1,11 @@
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { isMobile, isTablet } from 'react-device-detect';
+import { tweetBase } from "../utils/generate-text";
 
-export function Tweet({fakeText} : {fakeText: string}) {
+export function Tweet({fakeText, monarkisses} : {fakeText: string, monarkisses: any}) {
     const [loading, setLoading] = useState(true);
+    const tweets = useRef(tweetBase(monarkisses).length);
     useEffect(()=>{
         var interval = setInterval(waitIframeDisplay, 300);
         setInterval(() => clearInterval(interval),1500);
@@ -29,7 +31,7 @@ export function Tweet({fakeText} : {fakeText: string}) {
             <a href="https://twitter.com/monark/status/1454912673083232263?ref_src=twsrc%5Etfw">October 31, 2021</a>
         </blockquote> 
         <Script async src="https://platform.twitter.com/widgets.js"></Script>
-        <p onClick={()=>{setLoading(false); alert('tente desativar o mixed-content blocking')}} className="cursor-pointer underline text-white">firefox?</p>
+        <div className="w-full flex justify-between"><p onClick={()=>{setLoading(false); alert('tente desativar o mixed-content blocking')}} className="cursor-pointer underline text-white">firefox?</p><p className="text-white">{tweets.current} tweets usados</p></div>
         </div>
     )
 }

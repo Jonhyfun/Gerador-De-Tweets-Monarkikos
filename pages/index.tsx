@@ -16,7 +16,7 @@ export default function Index({monarkisses}) {
   return (
     <div className="w-screen h-screen flex flex-col gap-6 -mt-6 md:-mt-0 md:gap-10 justify-center items-center bg-blue-400">
       <p className="text-2xl md:text-4xl text-white" style={{fontFamily: 'Barlow, sans-serif', fontWeight: 500, textShadow: '2px 3px 1px black'}}>Gerador de tweets Monarkikos!</p>
-      <Tweet fakeText={generatedText}/>
+      <Tweet monarkisses={monarkisses} fakeText={generatedText}/>
       <button onClick={() => setText(GenerateText(monarkisses))} className="hover text-white font-bold py-2 px-4 rounded-full" style={{boxShadow: '2px 4px 10px #00000050', backgroundColor: 'rgb(29, 155, 240)'}}>
         Gerar mais um Tweet!
       </button>
