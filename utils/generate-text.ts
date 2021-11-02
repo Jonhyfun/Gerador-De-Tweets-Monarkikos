@@ -1,4 +1,5 @@
 import Markov from 'markov-strings';
+import { isMobile } from 'react-device-detect';
 
 export function tweetBase(monarkisses: string) {
   const data = monarkisses.split('\n').map((word) => word.replace('\r', '')).filter((word) => {return word.replace(/([\r\n]){1,}/g, '\n\n')});
@@ -18,7 +19,7 @@ export function GenerateText(monarkisses: string, chaos: boolean) {
       prng: Math.random,
     
       filter: (result) => {
-        return result.refs.length !== 1 && data.includes(result.string) === false && result.string.length < 101
+        return result.refs.length !== 1 && data.includes(result.string) === false && result.string.length < (isMobile ? 80 : 101)
       }
     }
     

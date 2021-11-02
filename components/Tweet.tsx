@@ -31,7 +31,7 @@ export function Tweet({fakeText, monarkisses, setChaos} : {fakeText: string, mon
             <a href="https://twitter.com/monark/status/1454912673083232263?ref_src=twsrc%5Etfw">October 31, 2021</a>
         </blockquote> 
         <Script async src="https://platform.twitter.com/widgets.js"></Script>
-        <div className="w-full flex justify-between">
+        <div className="flex gap-2 flex-wrap w-4/5 md:gap-0 md:w-full md:flex-nowrap justify-between">
             <label className="inline-flex items-center">
                 <input onChange={(e)=>setChaos(e.target.checked)} type="checkbox" className="form-checkbox" />
                 <span className="ml-2 text-white">tweets caóticos?</span>
