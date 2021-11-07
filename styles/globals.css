@@ -4,7 +4,7 @@
 
 @media only screen and (max-width: 600px) {
     .mobileFakeText {
-        width: 300px!important;
+        width: 315px!important;
         height: 40px!important;
         left: 16px !important;
         top: 80px !important;
