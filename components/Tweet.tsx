@@ -7,11 +7,12 @@ export function Tweet({fakeText, monarkisses, setChaos} : {fakeText: string, mon
     const [loading, setLoading] = useState(true);
     const tweets = useRef(tweetBase(monarkisses).length);
     useEffect(()=>{
-        var interval = setInterval(waitIframeDisplay, 300);
+        var interval = setInterval(waitIframeDisplay, 600);
         setInterval(() => clearInterval(interval),1500);
         function waitIframeDisplay() {
           if(document.querySelector('iframe').style.display !== 'none') {
               setLoading(false);
+              document.getElementById('mobileFakeText').style.width = document.querySelector('iframe').style.width;
               clearInterval(interval);
           }
         }
@@ -19,7 +20,7 @@ export function Tweet({fakeText, monarkisses, setChaos} : {fakeText: string, mon
     return(
         <div className="relative">
         {!loading && 
-            <div className="mobileFakeText text-sm md:text-xl h-14 md:leading-6 absolute text-black bg-white" style={{top:'83.333px', left: '18px', width: '512px'}}>
+            <div id="mobileFakeText" className="mobileFakeText text-sm md:text-xl h-14 md:leading-6 absolute text-black bg-white" style={{top:'83.333px', left: '18px', width: '512px'}}>
                 {fakeText}
             </div>
         }
