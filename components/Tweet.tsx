@@ -12,7 +12,7 @@ export function Tweet({fakeText, monarkisses, setChaos} : {fakeText: string, mon
         function waitIframeDisplay() {
           if(document.querySelector('iframe').style.display !== 'none') {
               setLoading(false);
-              document.getElementById('mobileFakeText').style.width = document.querySelector('iframe').style.width;
+              //document.getElementById('mobileFakeText').style.width = document.querySelector('iframe').style.width;
               clearInterval(interval);
           }
         }
