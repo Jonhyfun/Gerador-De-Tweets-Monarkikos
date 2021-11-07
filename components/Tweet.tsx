@@ -13,7 +13,7 @@ export function Tweet({fakeText, monarkisses, setChaos} : {fakeText: string, mon
         setInterval(() => clearInterval(interval),1500);
         function waitIframeDisplay() {
           if(document.querySelector('[class="twitter-tweet twitter-tweet-rendered"]') !== null && tweetOverlayRef.current !== undefined) { 
-            tweetOverlayRef.current.style.width = document.querySelector('[class="twitter-tweet twitter-tweet-rendered"]').clientWidth.toString() + 'px !important'
+            tweetOverlayRef.current.style.width = (document.querySelector('[class="twitter-tweet twitter-tweet-rendered"]').clientWidth +20).toString() + 'px !important'
             tweetOverlayRef.current.classList.remove('opacity-0')
             setLoading(false);
             clearInterval(interval);
