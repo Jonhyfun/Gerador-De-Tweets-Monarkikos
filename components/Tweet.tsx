@@ -1,26 +1,29 @@
 import Script from "next/script";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useCallback, useEffect, useRef, useState } from "react";
 import { isMobile, isTablet } from 'react-device-detect';
 import { tweetBase } from "../utils/generate-text";
 
 export function Tweet({fakeText, monarkisses, setChaos} : {fakeText: string, monarkisses: any, setChaos: Dispatch<SetStateAction<boolean>>}) {
     const [loading, setLoading] = useState(true);
     const tweets = useRef(tweetBase(monarkisses).length);
-    useEffect(()=>{
+
+    const initializeTweetOverlay = useCallback(() => {
         var interval = setInterval(waitIframeDisplay, 600);
         setInterval(() => clearInterval(interval),1500);
         function waitIframeDisplay() {
-          if(document.querySelector('iframe').style.display !== 'none') {
-              setLoading(false);
-              //document.getElementById('mobileFakeText').style.width = document.querySelector('iframe').style.width;
-              clearInterval(interval);
+          if(document.querySelector('[class="twitter-tweet twitter-tweet-rendered"]') !== null) { 
+            document.getElementById('mobileFakeText').style.width = document.querySelector('[class="twitter-tweet twitter-tweet-rendered"]').clientWidth.toString() + 'px !important'
+            document.getElementById('mobileFakeText').classList.remove('hidden')
+            setLoading(false);
+            clearInterval(interval);
           }
         }
-    },[])
+    },[setLoading])
+
     return(
         <div className="relative">
         {!loading && 
-            <div id="mobileFakeText" className="mobileFakeText text-sm md:text-xl h-14 md:leading-6 absolute text-black bg-white" style={{top:'83.333px', left: '18px', width: '512px'}}>
+            <div id="mobileFakeText" onLoad={()=>initializeTweetOverlay()} className="mobileFakeText hidden text-sm md:text-xl h-14 md:leading-6 absolute text-black bg-white" style={{top:'83.333px', left: '18px', width: '512px'}}>
                 {fakeText}
             </div>
         }
